@@ -34,7 +34,7 @@ const colors = {
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"/>
         <link href="https://fonts.googleapis.com/css?family=BioRhyme|Cabin&display=swap" rel="stylesheet">
-        <title>Document</title>
+        <title>Developer Profile Generator</title>
         <style>
             @page {
               margin: 0;
@@ -170,8 +170,71 @@ const colors = {
               zoom: .75; 
             } 
            }
-        </style>`
 
+        </style>
+    </head>
+
+  <body>
+
+
+  <div class="container">
+    
+    <div class="photo-header">
+      
+        <div class="photo-header img">
+        </div>
+        
+        <div class="photo-header h1">
+            <h1>Hi!</h1>
+            <br>
+        </div>
+
+        <div class="photo-header h2">
+          <h5>"My name is" id="name"</h5> 
+        </div>  
+
+        <div class="photo-header h2">
+          <h5>"Currently @" id="company"</h5> 
+        </div>  
+        
+        <div class="row">
+          <div class="nav-link">
+              <h6>Google maps link</h6>
+              <h6>gitHub link</h6>
+              <h6>Linkedin link</h6>
+          </div>
+        </div>
+    
+    </div>
+
+    <div class="photo-header">
+      <h5>id="bio"</h5>  
+    </div>
+
+    // 4 colorful repos
+    <div class="row">
+      
+        <div class="card">
+        </div>
+        
+        <div class="card">
+            
+            <br>
+        </div>
+    </div>
+
+    <div class="row">
+      
+        <div class="card">
+        </div>
+        
+        <div class="card">
+            
+            <br>
+        </div>
+    </div>
+
+</body>`
 
 
   }

@@ -1,31 +1,31 @@
 const colors = {
     green: {
-      wrapperBackground: "#E6E1C3",
-      headerBackground: "#C1C72C",
-      headerColor: "black",
-      photoBorderColor: "#black"
+        wrapperBackground: "#E6E1C3",
+        headerBackground: "MediumSeaGreen",
+        headerColor: "black",
+        photoBorderColor: "#black"
     },
     blue: {
-      wrapperBackground: "#5F64D3",
-      headerBackground: "#26175A",
-      headerColor: "white",
-      photoBorderColor: "#73448C"
+        wrapperBackground: "black",
+        headerBackground: "blue",
+        headerColor: "white",
+        photoBorderColor: "#C5CFB8"
     },
     pink: {
-      wrapperBackground: "#879CDF",
-      headerBackground: "#FF8374",
-      headerColor: "white",
-      photoBorderColor: "#FEE24C"
+        wrapperBackground: "#879CDF",
+        headerBackground: "#FF8374",
+        headerColor: "white",
+        photoBorderColor: "#FEE24C"
     },
     red: {
-      wrapperBackground: "#DE9967",
-      headerBackground: "#870603",
-      headerColor: "white",
-      photoBorderColor: "white"
+        wrapperBackground: "grey",
+        headerBackground: "crimson",
+        headerColor: "white",
+        photoBorderColor: "white"
     }
-  };
-  
-  function generateHTML(data) {
+};
+
+function generateHTML(data) {
     return `<!DOCTYPE html>
   <html lang="en">
      <head>
@@ -34,7 +34,7 @@ const colors = {
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"/>
         <link href="https://fonts.googleapis.com/css?family=BioRhyme|Cabin&display=swap" rel="stylesheet">
-        <title>Developer Profile Generator</title>
+        <title>Document</title>
         <style>
             @page {
               margin: 0;
@@ -83,6 +83,7 @@ const colors = {
            }
            h5 {
            font-size: 1.3em;
+           align-text: center;
            }
            h6 {
            font-size: 1.2em;
@@ -99,6 +100,7 @@ const colors = {
            padding: 10px;
            width: 95%;
            border-radius: 6px;
+           text-align: center;
            }
            .photo-header img {
            width: 250px;
@@ -109,7 +111,9 @@ const colors = {
            border: 6px solid ${colors[data.color].photoBorderColor};
            box-shadow: rgba(0, 0, 0, 0.3) 4px 1px 20px 4px;
            }
-           .photo-header h1, .photo-header h2 {
+           .photo-header h1, 
+           .photo-header h3,
+           .photo-header h5 {
            width: 100%;
            text-align: center;
            }
@@ -137,15 +141,13 @@ const colors = {
            padding-left: 100px;
            padding-right: 100px;
            }
-  
            .row {
              display: flex;
-             flex-wrap: wrap;
+             flex-wrap: nowrap;
              justify-content: space-between;
              margin-top: 20px;
              margin-bottom: 20px;
            }
-  
            .card {
              padding: 20px;
              border-radius: 6px;
@@ -158,83 +160,92 @@ const colors = {
            flex: 1;
            text-align: center;
            }
-  
            a, a:hover {
            text-decoration: none;
            color: inherit;
            font-weight: bold;
            }
-  
            @media print { 
             body { 
               zoom: .75; 
             } 
+            img {
+              display: block;
+              margin-left: auto;
+              margin-right: auto;
+              width: 50%;
+            }
            }
-
         </style>
-    </head>
-
-  <body>
-
-
-  <div class="container">
-    
-    <div class="photo-header">
-      
-        <div class="photo-header img">
+     </head>
+     <body>
+        <div class="wrapper">
+           <div class="photo-header">
+              <img src= "${data.avatar_url}" alt="Avatar"/>
+              <h1>Hi!</h1>
+              <h2>My name is ${data.name}!</h2> 
+              <br>
+              <h5>${data.company ? `Currently @ ${data.company}` : ""}</h5>
+              
+              <nav class="links-nav">
+                    ${
+                    data.location
+                        ? `<a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps/place/${
+                        data.location
+                        }"><i class="fas fa-location-arrow"></i> ${
+                        data.location
+                        }</a>`
+                        : ""
+                    }
+                        <a class="nav-link" target="_blank" rel="noopener noreferrer" href="${
+                    data.html_url
+                    }"><i class="fab fa-github-alt"></i> GitHub</a>
+                            ${
+                    data.blog
+                        ? `<a class="nav-link" target="_blank" rel="noopener noreferrer" href="${
+                        data.blog
+                        }"><i class="fas fa-rss"></i> LinkedIn</a>`
+                        : ""
+                    }
+              </nav>
+           </div>
+           <main>
+            <div class="container">
+              <div class="row">
+                 <div class="col">
+                    <h3>${data.bio ? `${data.bio}` : ""}</h3>
+                 </div>
+               </div>
+                          
+              <div class="row">
+                    <div class="col card">
+                             <h3>Public Repositories</h3>
+                             <h5>${data.public_repos}</h5>
+                    </div>
+                        
+                   <div class="col card">
+                             <h3>Followers</h3>
+                             <h5>${data.followers}</h5>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col card">
+                            <h3>GitHub Stars</h3>
+                            <h5>${data.public_gists}</h5>
+                    </div>
+                 
+                     <div class="col card">
+                            <h3>Following</h3>
+                            <h5>${data.following}</h5>
+                     </div>
+                </div>
+              
+            </div>
+           </main>
         </div>
-        
-        <div class="photo-header h1">
-            <h1>Hi!</h1>
-            <br>
-        </div>
+     </body>
+  </html>`;
+}
 
-        <div class="photo-header h2">
-          <h5>"My name is" id="name"</h5> 
-        </div>  
-
-        <div class="photo-header h2">
-          <h5>"Currently @" id="company"</h5> 
-        </div>  
-        
-        <div class="row">
-          <div class="nav-link">
-              <h6>Google maps link</h6>
-              <h6>gitHub link</h6>
-              <h6>Linkedin link</h6>
-          </div>
-        </div>
-    
-    </div>
-
-    <div class="photo-header">
-      <h5>id="bio"</h5>  
-    </div>
-
-    // 4 colorful repos
-    <div class="row">
-      
-        <div class="card">
-        </div>
-        
-        <div class="card">
-            
-            <br>
-        </div>
-    </div>
-
-    <div class="row">
-      
-        <div class="card">
-        </div>
-        
-        <div class="card">
-            
-            <br>
-        </div>
-    </div>
-
-</body>`
-
-
-  }
+module.exports = generateHTML;

@@ -5,7 +5,11 @@
   "main": "index.js",
   "dependencies": {
     "axios": "^0.19.1",
-    "inquirer": "^7.0.3"
+    "electron": "^7.1.9",
+    "electron-html-to": "^2.6.0",
+    "html-pdf": "^2.2.0",
+    "inquirer": "^7.0.3",
+    "puppeteer": "^2.0.0"
   },
   "devDependencies": {},
   "scripts": {

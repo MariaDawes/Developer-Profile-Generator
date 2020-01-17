@@ -1,105 +1,53 @@
-const questions = [
-  
-];
 
-function writeToFile(fileName, data) {
- 
-}
+const fs = require('fs');
+const axios = require("axios");
+const inquirer = require("inquirer");
+const generateHTML = require("./generateHTML");
+const pdf = require('html-pdf');
 
 
 function init() {
+    inquirer
+        .prompt([
+            {
+                type: "input",
+                name: "username",
+                message: "What is your github user name?"
 
-  // function init() - inputs username and favorite color 
-  var inquirer = require("inquirer");
-  
-  inquirer.prompt([
-      {
-          type: "input",
-          message: "What is your username?",
-          name: "username"
-      },
-      {
-          type: "list",
-          message: "What is your favorite color?",
-          name: "colors",
-          choices: [
-            "Green", 
-            "Blue", 
-            "Pink", 
-            "Red"
-          ]
-      }
-  ])
-  .then(function(response) {
-    
-      if ((response.username) != ""){
-        
-        const username = (response.username);
-        const favcolor = (response.colors);
-
-        console.log("username:", username)
-        console.log("color:", favcolor);
-
-        // gets the information needed from Github, using the username provided
-        
-        //const fs = require("fs");
-        const axios = require("axios");
-        const queryUrl = `https://api.github.com/users/${username}`;
-        console.log(queryUrl);
-        
-        axios.get(queryUrl).then(function(res) {
-           
-            const repoAll = res.data;  
-            console.log(res.data);
-
-            const loginUser = res.data.login;
-            console.log(res.data.login);
-
-            const pictureUser = res.data.avatar_url;
-            console.log(pictureUser);
-
-            const bioUser = res.data.bio;
-            console.log("bio:", bioUser);
-
-            const reponumberUser = res.data.public_repos;
-            console.log("repo:", reponumberUser);
-
-            const followersUser = res.data.followers;
-            console.log("follower:", followersUser);
-
-            const followingUser = res.data.following;
-            console.log("following:", followingUser);
-
-            const starUser = res.data.public_gists;
-            console.log("star:", starUser);
-
-            // link user location via googel maps
+            },
+            {
+                type: "list",
+                name: "color",
+                message: "What is your favorite color?",
+                choices: ["green", "blue", "pink","red",]
+            }
+        ])
+        .then(answers => {
             
-            const locationUser = res.data.location;
-            console.log("location:", locationUser);
+            console.log(answers)
 
-            // links
+            axios.get('https://api.github.com/users/' + answers.username)
+                .then(function (response) {
+                    
+                    // Get the response axios sent and set varibles to support pdf file generation
+                    var color = answers.color
+                    var starsUsers = 0
+                    var filehtml = generateHTML({ ...answers, starsUsers, ...response.data })
+                    const options = { format: 'Letter' };
 
-            const gitprofilelinkUser = res.data.html_url;
-            console.log("Gitprofile link:", gitprofilelinkUser);
+                    // Generate pdf file
+                    pdf.create(filehtml, options).toFile('./generateHTML.pdf', function (err, res) {
+                        if (err) return console.log(err);
+                        console.log(res);
+                    })
+                })
+                .catch(function (error) {
+                    // handle error
+                    console.log(error);
+                })
 
-            const bloglinkUser = res.data.blog;
-            console.log("blog link:", bloglinkUser);
-        
-          
-         });  // end axios
 
-      } //end if 
+        });
+}
 
-      else{
-        console.log("Please enter a valid username!");
-        init(); 
-      }  // end else
-
-  })  // end response function
-
-} // end init function
-
-init(); 
-// go to Github website and get the information needed
-// write this information in the pdf file 
+init();

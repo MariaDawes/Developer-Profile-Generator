@@ -11,22 +11,24 @@ Learn about getting data from a website using axios.
 # Prerequisites
 The software will run in any Laptop, iPad and phone.
 
-# Submissions
+# Results 
 
-* An animated GIF demonstrating the app functionality
+* The four .pdf files are in the repo 
+    
+    - MariaDawes - red
+    - MariaDawes - blue
+    - MariaDawes - pink
+    - MariaDawes - green
 
-* A generated PDF of your GitHub profile
+* GIF
 
-* The URL of the GitHub repository
+* Prompt and results Screenshots
 
-# GIF
-
-# Screenshots
-
-![alt tag](https://mariadawes.github.io/Updatedportfoliopage/red.png)
-![alt tag](https://mariadawes.github.io/Updatedportfoliopage/blue.png)
-![alt tag](https://mariadawes.github.io/Updatedportfoliopage/pink.png)
-![alt tag](https://mariadawes.github.io/Updatedportfoliopage/green.png)
+![alt tag](https://mariadawes.github.io/Updatedportfoliopage/prompt.png)
+![alt tag](https://mariadawes.github.io/Updatedportfoliopage/Mariascreenshopblue.png)
+![alt tag](https://mariadawes.github.io/Updatedportfoliopage/Mariascreenshotred.png)
+![alt tag](https://mariadawes.github.io/Updatedportfoliopage/Mariascreenshotgreen.png)
+![alt tag](https://mariadawes.github.io/Updatedportfoliopage/Mariascreenshotpink.png)
 
 # Tests 
 

@@ -13,7 +13,7 @@ The software will run in any Laptop, iPad and phone.
 
 # Results 
 
-* The four .pdf files are in the repo 
+* A pdf file was generated when ran the program. I coppied the result for each of the colors in a separate files. These files are on my Github Developer profile generator repo. 
     
     - MariaDawes - red
     - MariaDawes - blue
@@ -21,6 +21,9 @@ The software will run in any Laptop, iPad and phone.
     - MariaDawes - green
 
 * GIF
+
+- Recorded file is located at my Github Developer profile generator repo under the name: developer-profile-generator-recording.avi
+
 
 * Prompt and results Screenshots
 

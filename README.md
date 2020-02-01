@@ -27,13 +27,7 @@ The software will run in any Laptop, iPad and phone.
 
 * Prompt and results Screenshots
 
-![alt tag](https://mariadawes.github.io/Updatedportfoliopage/prompt.png)
-![alt tag](https://mariadawes.github.io/Updatedportfoliopage/Mariascreenshopblue.png)
-![alt tag](https://mariadawes.github.io/Updatedportfoliopage/Mariascreenshotred.png)
-![alt tag](https://mariadawes.github.io/Updatedportfoliopage/Mariascreenshotgreen.png)
-![alt tag](https://mariadawes.github.io/Updatedportfoliopage/Mariascreenshotpink.png)
-
-![alt text](./prompt.png "Prompt")
+![alt text](./Prompt.png "Prompt")
 ![alt text](./Mariascreenshopblue.png "Blue backgound")
 ![alt text](./Mariascreenshotred.png "Red background")
 ![alt text](./Mariascreenshotpink.png "Pink background")

@@ -6,10 +6,10 @@ const colors = {
         photoBorderColor: "#black"
     },
     blue: {
-        wrapperBackground: "black",
-        headerBackground: "blue",
-        headerColor: "white",
-        photoBorderColor: "#C5CFB8"
+        wrapperBackground: "grey",
+        headerBackground: "lightblue",
+        headerColor: "grey",
+        photoBorderColor: "black"
     },
     pink: {
         wrapperBackground: "#879CDF",
